@@ -1,0 +1,70 @@
+/* Card styles (modern, minimal) */
+:root{
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #7c3aed;
+  --accent-2: #06b6d4;
+  --shadow: 0 8px 30px rgba(15,23,42,0.08);
+  --radius: 16px;
+  --max-width: 880px;
+}
+
+*{box-sizing:border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,#eef2ff,#f8fafc);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:48px 20px;
+  color:#0f172a;
+}
+
+.app-root{width:100%;max-width:var(--max-width)}
+
+/* Blog card */
+.blog-card{
+  display:flex;
+  gap:24px;
+  background:var(--card);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.blog-card:hover{transform:translateY(-6px); box-shadow: 0 18px 40px rgba(15,23,42,0.12)}
+
+.media{
+  width:44%;
+  min-height:320px;
+  background-size:cover;
+  background-position:center;
+  flex-shrink:0;
+}
+
+/* content */
+.content{padding:28px 32px;display:flex;flex-direction:column;gap:18px;width:56%}
+.meta{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.category{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+.title{margin:0;font-size:22px;line-height:1.15}
+.desc{margin:0;color:var(--muted);font-size:15px}
+
+/* footer */
+.footer{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:auto}
+.author{display:flex;align-items:center;gap:12px}
+.author-avatar{width:48px;height:48px;border-radius:12px;object-fit:cover;border:2px solid #fff;box-shadow:0 6px 20px rgba(15,23,42,0.06)}
+.author-info .name{font-weight:600}
+.author-info .role{font-size:13px;color:var(--muted)}
+
+.read-btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;padding:10px 16px;border-radius:12px;cursor:pointer;font-weight:600;box-shadow:0 8px 18px rgba(124,58,237,0.12)}
+.read-btn:hover{transform:translateY(-3px)}
+
+/* responsive - desktop only requested, but keep neat on narrow screens */
+@media (max-width:900px){
+  .blog-card{flex-direction:column}
+  .media{width:100%;min-height:220px}
+  .content{width:100%}
+}
